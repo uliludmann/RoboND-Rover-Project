@@ -109,9 +109,9 @@ def perception_step(Rover):
     # 2) Apply perspective transform
     warped, mask = perspect_transform(img, source, destination)
     # 3) Apply color threshold to identify navigable terrain/obstacles/rock samples
-    sichtweite = 4 # sichtweite in meter
-    threshed = color_thresh(warped)[100:160, :]
-    obstacles_threshed = np.absolute(np.float32(threshed)-1) * mask[100:160, :]
+    sichtweite = 90 # je höher, desto kleiner möglich von 0 bis 160
+    threshed = color_thresh(warped)[sichtweite:160, :]
+    obstacles_threshed = np.absolute(np.float32(threshed)-1) * mask[sichtweite:160, :]
 
     # 4) Update Rover.vision_image (this will be displayed on left side of screen)
         # Example: Rover.vision_image[:,:,0] = obstacle color-thresholded binary image
@@ -119,8 +119,8 @@ def perception_step(Rover):
         #          Rover.vision_image[:,:,2] = navigable terrain color-thresholded binary image
 
 
-    Rover.vision_image[100:160, :, 0] = obstacles_threshed * 255
-    Rover.vision_image[100:160, :, 2] = threshed * 255
+    Rover.vision_image[sichtweite:160, :, 0] = obstacles_threshed * 255
+    Rover.vision_image[sichtweite:160, :, 2] = threshed * 255
 
 
     # 5) Convert map image pixel values to rover-centric coords
