@@ -143,6 +143,7 @@ def perception_step(Rover):
         Rover.worldmap[yworld, xworld, 2] += 10
         Rover.worldmap[obsypix,obsxpix, 0] += 1
 
+
     # 8) Convert rover-centric pixel positions to polar coordinates
     dist, angles = to_polar_coords(xpix, ypix)
 
@@ -162,8 +163,9 @@ def perception_step(Rover):
         rock_xcen = rock_x_world[rock_idx]
         rock_ycen = rock_y_world[rock_idx]
         Rover.worldmap[rock_ycen, rock_xcen, 1] = 255
-        Rover.vision_image[:, :, 1] = rock_threshed * 255
-
+        Rover.vision_image[sichtweite:160, :, 1] = rock_threshed[sichtweite:160] * 255
+        Rover.rock_dist = rock_dist
+        Rover.rock_angle = rock_angle
 
     else:
         Rover.vision_image[:, :, 1] = 0

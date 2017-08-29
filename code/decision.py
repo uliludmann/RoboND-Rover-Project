@@ -72,11 +72,6 @@ def decision_step(Rover):
                     Rover.mode = 'forward'
 
 
-    # Just to make the rover do something
-    # even if no modifications have been made to the code
-
-    #if np.count_nonzero(Rover.vision_image[:, :, 1]) > 50:
-    #    Rover.mode = 'pickup'
 
 
     # If in a state where want to pickup a rock send pickup command
@@ -85,18 +80,30 @@ def decision_step(Rover):
 
     if Rover.mode == 'stuck':
         print(Rover.mode)
-        Rover.throttle = -0.2
-        Rover.steer = 15
-        #if len(Rover.nav_angles) >= Rover.stop_forward:
-        #    if Rover.vel < Rover.max_vel:
-        #        Rover.mode = 'forward'
-        #        Rover.start_time_stuck = None
+        if not Rover.stuck_choice:
+            #Rover.stuck_choice = True
+            Rover.throttle = -0.2
+            Rover.steer = 15
+        if len(Rover.nav_angles) >= 2 * Rover.stop_forward and (Rover.total_time - Rover.start_time_stuck) > 13:
+                Rover.mode = 'forward'
+                Rover.start_time_stuck = None
+                Rover.stuck_choice = None
 
-        if Rover.total_time - Rover.start_time_stuck > 10:
-            Rover.mode = 'forward'
-            Rover.start_time_stuck = None
+    #if np.count_nonzero(Rover.vision_image[:,:, 1]) > 40:
+    #    print("ich sehe einen Felsen!")
+    #    Rover.brake = Rover.brake_set
+    #    Rover.throttle = 0
+    #    rover.steer = 0
+    #    Rover.mode = 'rock'
+        #if Rover.vel == 0:
+        #    Rover.mode = 'approaching_rock'
 
 
+    #if Rover.mode == 'rock':
+    #    print(Rover.mode)
+    #    Rover.steer = np.clip(np.mean(Rover.nav_angles[:, :, 1] * 180/np.pi ), -15, 15)
+
+        #Rover.mode = 'forward'
 
 
     return Rover
