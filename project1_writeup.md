@@ -108,12 +108,12 @@ world_size = data.worldmap.shape[0]
 
 ```python
 x_world, y_world = pix_to_world(x_navi, y_navi, xpos, ypos, yaw, world_size, scale)
-    obsx_pix, obsy_pix = pix_to_world(obstacles_rover[0], obstacles_rover[1], xpos, ypos, yaw, world_size, scale)
+obsx_pix, obsy_pix = pix_to_world(obstacles_rover[0], obstacles_rover[1], xpos, ypos, yaw, world_size, scale)
 ```
 
 
 ### decision.py functions
-Most of the code is unchanged. Form the version that you provided with the assignment.
+
 
 #### perception_step()
 I implemented "wall-hugging" by adding a offset to the Rover.steer in line 27.
@@ -171,8 +171,8 @@ if Rover.pitch < 0.3 and Rover.roll < 0.3:
 
 
 ## Conclusion
-Unfortunately I was not able to master this assignment running without the help of the project walkthrough. I learned a lot about image processing and of course numpy and python.
-It was nice to see that the function which I implemented by myself (is the rover stuck?) worked.
+I learned a lot about image processing and of course numpy and python.
+It was nice to see that the function, I implemented by myself (is the rover stuck?) worked. Unfortunately I was not able to master this assignment running without the help of the project walkthrough.
 I look forward to the next assignment.
 
-*My code is optimized to run in 800x600 resolution and on quality level "good". FPS were between 10 and 30 *
+* My code is optimized to run in 800x600 resolution and on quality level "good". FPS were between 10 and 30 *
