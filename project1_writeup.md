@@ -90,13 +90,13 @@ obstacles_rover = rover_coords(obs_map)
 In this function, all methods from above are combined to generate the map.
 1. source and destination parametes for the perspective transform are set.
 1. the image gets warped and the mask gets generated. (image 2 and 3 below)
-1. we color-threshold the navigable terrain and the obstacles. (/or of course rocks.) (image 4)
+1. we color-threshold the navigable terrain and the obstacles. (/or of course rocks.) (image 4.is not warped though.)
 1. we transform the images (navigable terrain and obstacles) into rover centric coordinates.
 
 ![image processing steps](misc/rock_processing.png)
 
 Then we feed the rover centric coordinates into the pix_to_world function to populate the map.
-The arguments for the function are received by the Rover instance:
+The arguments for the function are received from the Rover instance:
 
 ```python
 xpos = float(data.xpos[data.count])
