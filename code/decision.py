@@ -86,8 +86,8 @@ def decision_step(Rover):
             Rover.steer = 15
         if len(Rover.nav_angles) >= 2 * Rover.stop_forward and (Rover.total_time - Rover.start_time_stuck) > 13:
                 Rover.mode = 'forward'
-                Rover.start_time_stuck = None
-                Rover.stuck_choice = None
+                #Rover.start_time_stuck = None
+                #Rover.stuck_choice = None
 
     #if np.count_nonzero(Rover.vision_image[:,:, 1]) > 40:
     #    print("ich sehe einen Felsen!")
