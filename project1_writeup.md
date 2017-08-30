@@ -140,6 +140,7 @@ if Rover.mode == 'stuck':
           Rover.steer = 15
       if len(Rover.nav_angles) >= 2 * Rover.stop_forward and (Rover.total_time - Rover.start_time_stuck) > 13:
               Rover.mode = 'forward'
+              Rover.start_time_stuck = None
 ```
 
 I experimented a lot with rock detection. This works quiet well but i couldn't get the rover to drive near the rock and pick the rock up.
@@ -159,7 +160,7 @@ Rover.vision_image[sichtweite:160, :, 0] = obstacles_threshed * 255
 Rover.vision_image[sichtweite:160, :, 2] = threshed * 255
   ```
 
-Also i implemented a function, that only images are considered to be mapped, as the rover is in a stable driving-state:
+Additionally I implemented a function, so that only images are considered to be mapped, as the rover is in a stable driving-state:
 ```python
 if Rover.pitch < 0.3 and Rover.roll < 0.3:
       Rover.worldmap[yworld, xworld, 2] += 10
@@ -172,6 +173,6 @@ if Rover.pitch < 0.3 and Rover.roll < 0.3:
 ## Conclusion
 Unfortunately I was not able to master this assignment running without the help of the project walkthrough. I learned a lot about image processing and of course numpy and python.
 It was nice to see that the function which I implemented by myself (is the rover stuck?) worked.
-I look forward to the next assignment. 
+I look forward to the next assignment.
 
 *My code is optimized to run in 800x600 resolution and on quality level "good". FPS were between 10 and 30 *
