@@ -172,6 +172,6 @@ if Rover.pitch < 0.3 and Rover.roll < 0.3:
 ## Conclusion
 Unfortunately I was not able to master this assignment running without the help of the project walkthrough. I learned a lot about image processing and of course numpy and python.
 It was nice to see that the function which I implemented by myself (is the rover stuck?) worked.
-I look forward to the next assignment.
+I look forward to the next assignment. 
 
 *My code is optimized to run in 800x600 resolution and on quality level "good". FPS were between 10 and 30 *
