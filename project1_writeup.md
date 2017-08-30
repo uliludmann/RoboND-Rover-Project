@@ -1,5 +1,5 @@
 # Rover Sample Return Project
-**Writeup for Project 1 - Udacity Robotics Nanodegree** Handed in by Ulrich Ludmann 2017/08/29
+**Writeup for Project 1 - Udacity Robotics Nanodegree.** Handed in by Ulrich Ludmann 2017/08/30
 
 ## Abstract
 The Goal of this Project is to drive a rover around a simulated Environment. The Rover senses the Environment optically with a video camera.
@@ -175,4 +175,4 @@ I learned a lot about image processing and of course numpy and python.
 It was nice to see that the function, I implemented by myself (is the rover stuck?) worked. Unfortunately I was not able to master this assignment running without the help of the project walkthrough.
 I look forward to the next assignment.
 
-* My code is optimized to run in 800x600 resolution and on quality level "good". FPS were between 10 and 30 *
+*My code is optimized to run in 800x600 resolution and on quality level "good". FPS were between 10 and 30*
