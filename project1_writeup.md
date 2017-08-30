@@ -16,7 +16,19 @@ Initially I forgot to implement the masking. After watching the walkthrough, it 
 
 #### Color thresh
 These functions are slightly modified from the functions you provided.
-In the rock detection function, I provide lower and upper thresholds for the color, parameters.
++ First I create a matrix with the same dimensions as
++ Then I search for r, g and b values that are higher than the provided values.
++ Then the zero-matrix gets updated with 1-Values at the positions where rgb values are higher.
+
+Same procedure in obstacle detection.
+
+In the rock detection function, I provide lower and upper thresholds for the color- parameters.
+Afterward I search for entries, that match the conditions and fill a matrix with 1, where these conditions are met.
+
+The following image shows the processing.
+
+![image processing steps] (/misc/rock_processing.png)
+
 
 #### Process image function
 I copied the scaffolding for this function from the walkthrough.
