@@ -30,7 +30,7 @@ In order to generate a map with only these images, we need to determine the vali
 
 The following picture shows our camera image after transformation (left image) and the mask (right image).
 
-![perspective transformation and mask](misc/transformed perspective and mask.png)
+![perspective transformation and mask](misc/transformed_perspective_and_mask.png)
 
 
 #### Color thresh
