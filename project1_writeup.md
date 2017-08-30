@@ -30,7 +30,7 @@ In order to generate a map with only these images, we need to determine the vali
 
 The following picture shows our camera image after transformation (left image) and the mask (right image).
 
-![perspective transformation and mask](/misc/transformed perspective and mask.png)
+![perspective transformation and mask](misc/transformed perspective and mask.png)
 
 
 #### Color thresh
@@ -89,9 +89,11 @@ obstacles_rover = rover_coords(obs_map)
 ```
 In this function, all methods from above are combined to generate the map.
 1. source and destination parametes for the perspective transform are set.
-1. the image gets warped and the mask gets generated
-1. we color-threshold the navigable terrain and the obstacles.
+1. the image gets warped and the mask gets generated. (image 2 and 3 below)
+1. we color-threshold the navigable terrain and the obstacles. (/or of course rocks.) (image 4)
 1. we transform the images (navigable terrain and obstacles) into rover centric coordinates.
+
+![image processing steps](misc/rock_processing.png)
 
 Then we feed the rover centric coordinates into the pix_to_world function to populate the map.
 The arguments for the function are received by the Rover instance:
